@@ -1,20 +1,22 @@
 import Layout from "./components/Layout/Layout";
 import { useCars } from "./hooks/useCars";
+import "./home.css";
+import CarCard from "./components/CarCard";
 
 function Home() {
-  const { isPending, error, data } = useCars();
+  const { isPending, error, data: cars } = useCars();
 
   if (isPending) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
-  console.log("data", data);
+  console.log("data", cars);
 
   return (
     <Layout>
-      <div>
-        home Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
-        dignissimos sequi aliquam eos incidunt eligendi. Quo veniam minima iste
-        lorem*100
+      <div className="grid">
+        {cars.map((car) => {
+          return <CarCard car={car} />;
+        })}
       </div>
     </Layout>
   );
