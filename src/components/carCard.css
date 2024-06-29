@@ -36,7 +36,7 @@
 .card-name {
   font-size: 18px !important;
   padding: 8px 16px;
-  text-shadow: 0 0.1em 0.1em #dddddd;
+  text-shadow: 0 0px 1px gray;
 }
 
 .card-description {
