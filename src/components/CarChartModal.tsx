@@ -5,6 +5,7 @@ import "./carChartModal.css";
 import Chart from "./Chart";
 import { useCarChart } from "../hooks/useCarChart";
 import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const CarChartModal = ({
   open,
@@ -15,7 +16,7 @@ const CarChartModal = ({
   onClose: VoidFunction;
   car?: Car;
 }) => {
-  const { data } = useCarChart(car?.id);
+  const { isPending, data } = useCarChart(car?.id);
 
   return (
     <Modal
@@ -40,7 +41,11 @@ const CarChartModal = ({
               <div className="chart-subtitle">{`${capitalizeFirstLetter(
                 type
               )}에 따른 연비 변화`}</div>
-              <Chart data={data?.[type]} areaColor={color} unit={unit} />
+              {isPending ? (
+                <CircularProgress />
+              ) : (
+                <Chart data={data?.[type]} areaColor={color} unit={unit} />
+              )}
             </div>
           ))}
         </AwesomeSlider>

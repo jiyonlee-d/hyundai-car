@@ -5,4 +5,5 @@ export type Car = {
   fuelEfficiency: number;
   isNew: boolean;
   imageName: string;
+  description?: string;
 };

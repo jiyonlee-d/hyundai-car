@@ -1,7 +1,7 @@
+import { ComponentPropsWithoutRef, forwardRef } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 import { Car } from "../types/car";
 import "./carCard.css";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 interface CarCardProps
   extends Omit<ComponentPropsWithoutRef<"div">, "onClick"> {
@@ -25,6 +25,7 @@ const CarCard = forwardRef<HTMLDivElement, CarCardProps>(
           <Typography className="card-name" gutterBottom>
             {car.name}
           </Typography>
+          <div className="card-description">{car.description}</div>
         </CardContent>
       </Card>
     );
