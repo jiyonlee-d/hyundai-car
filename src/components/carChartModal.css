@@ -1,0 +1,31 @@
+@import "react-awesome-slider/dist/styles.css";
+@import "react-awesome-slider/dist/custom-animations/fall-animation.css";
+
+.awssld__bullets {
+  bottom: 14px;
+  z-index: 9999;
+}
+
+.awssld__bullets button {
+  width: 10px;
+  height: 10px;
+}
+
+.modal-content {
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  background-color: #fff;
+  outline: none;
+}
+
+.chart-subtitle {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  font-size: 16px;
+}

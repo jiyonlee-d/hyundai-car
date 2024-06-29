@@ -1,24 +1,45 @@
-import Layout from "./components/Layout/Layout";
+import { useState } from "react";
+
 import { useCars } from "./hooks/useCars";
-import "./home.css";
+import Layout from "./components/Layout/Layout";
 import CarCard from "./components/CarCard";
+import CarChartModal from "./components/CarChartModal";
+import "./home.css";
 
 function Home() {
-  const { isPending, error, data: cars } = useCars();
+  const { isPending, data: cars } = useCars();
+  const [selectedCarId, setSelectedCarId] = useState<number>();
+
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
 
   if (isPending) return "Loading...";
 
-  if (error) return "An error has occurred: " + error.message;
-  console.log("data", cars);
-
   return (
-    <Layout>
-      <div className="grid">
-        {cars.map((car) => {
-          return <CarCard car={car} />;
-        })}
-      </div>
-    </Layout>
+    <>
+      <Layout>
+        <div className="grid">
+          {cars.map((car) => {
+            return (
+              <CarCard
+                key={car.id}
+                car={car}
+                onClick={(id: number) => {
+                  setOpen(true);
+                  setSelectedCarId(id);
+                }}
+              />
+            );
+          })}
+        </div>
+      </Layout>
+
+      <CarChartModal
+        open={open}
+        onClose={handleClose}
+        car={cars.find((car) => car.id == selectedCarId)}
+      />
+    </>
   );
 }
 

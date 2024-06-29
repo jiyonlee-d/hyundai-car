@@ -3,25 +3,26 @@ import { Car } from "../types/car";
 import "./carCard.css";
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 
-type CarCardProps = {
+interface CarCardProps
+  extends Omit<ComponentPropsWithoutRef<"div">, "onClick"> {
   car: Car;
-} & ComponentPropsWithoutRef<"div">;
+  onClick: (id: number) => void;
+}
 
 const CarCard = forwardRef<HTMLDivElement, CarCardProps>(
-  ({ car, ...props }, ref) => {
+  ({ car, onClick, ...props }, ref) => {
     return (
-      <Card {...props} ref={ref} className="card-container">
+      <Card
+        {...props}
+        ref={ref}
+        className="card-container"
+        onClick={() => {
+          onClick(car.id);
+        }}
+      >
         <CardContent>
           <img src={`/${car.imageName}.png`} />
-          <Typography
-            sx={{
-              fontSize: 14,
-              px: 3,
-              pt: 2,
-              textShadow: "0 0 0.1em #c6c6c6",
-            }}
-            gutterBottom
-          >
+          <Typography className="card-name" gutterBottom>
             {car.name}
           </Typography>
         </CardContent>
