@@ -26,7 +26,7 @@ const Chart = ({ data, areaColor = "#999", unit }: ChartProps) => {
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis
         dataKey="이름"
-        domain={["auto", "auto"]}
+        domain={["dataMin", "dataMax"]}
         type="number"
         tickFormatter={(value) => value + unit}
       />

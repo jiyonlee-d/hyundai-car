@@ -30,7 +30,7 @@ const CarChartModal = ({
           id="modal-modal-title"
           variant="h6"
           component="h2"
-          px={2}
+          px={4}
           py={2}
         >
           {car?.name}

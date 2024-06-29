@@ -2,7 +2,7 @@
 @import "react-awesome-slider/dist/custom-animations/fall-animation.css";
 
 .awssld__bullets {
-  bottom: 14px;
+  bottom: 20px;
   z-index: 9999;
 }
 
@@ -25,7 +25,7 @@
 
 .chart-subtitle {
   position: absolute;
-  left: 16px;
+  left: 32px;
   top: 16px;
   font-size: 16px;
 }
