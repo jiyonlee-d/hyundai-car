@@ -50,16 +50,17 @@ Job Description `데이터 분석 시스템 및 OTA 서비스 개발`을 보고 
 
 <img alt="Static Badge" src="https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white">
 
-## Installation
-
-`git clone https://github.com/jiyonlee-d/hyundai-car.git`
-
-`pnpm install`
-
-`pnpm run dev`
-
-브라우저에서 http://localhost:3000으로 접속합니다.
-
 ## Deploy
 
 라이브 데모는 https://hyundai-car-portfolio.vercel.app/에서 확인하실 수 있습니다.
+
+## Getting Started
+
+```
+git clone https://github.com/jiyonlee-d/hyundai-car.git
+npm install pnpm
+pnpm install
+pnpm run dev
+```
+
+브라우저에서 http://localhost:3000으로 접속합니다.
